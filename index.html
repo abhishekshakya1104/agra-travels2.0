@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore India - Travel & Tour</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1b2d4f;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    header nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    .hero {
+      height: 100vh;
+      background: url('https://t3.ftcdn.net/jpg/07/80/95/16/360_F_780951672_cJzVeOxybkHkCkFDIOGUAlcq2ADIHVO7.jpg') no-repeat center center/cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background-color: rgba(0,0,0,0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .section {
+      padding: 4rem 2rem;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1b2d4f;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card .info {
+      padding: 1rem;
+    }
+    .card .info h3 {
+      margin-bottom: 0.5rem;
+      color: #1b2d4f;
+    }
+    .contact {
+      background: #1b2d4f;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .contact form {
+      margin-top: 1rem;
+    }
+    .contact input, .contact textarea {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+      margin: 0.5rem auto;
+      display: block;
+      border: none;
+      border-radius: 5px;
+    }
+    footer {
+      background: #0f172b;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Explore India</strong></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="hero" id="home">
+    <h1>Discover India's Top Tourist Destinations</h1>
+  </section>  <section class="section" id="destinations">
+    <h2>Top 12 Places to Visit</h2>
+    <div class="cards" id="destination-cards"></div>
+  </section>  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@indiatours.com | Phone: +91 98765 43210</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="your message " rows="4"></textarea>
+    </form>
+  </section>  <footer>
+    &copy; 2025 Explore India Tours. All rights reserved.
+  </footer>  <script>
+    const destinations = [
+      {
+        name: "Taj Mahal",
+        location: "Agra, Uttar Pradesh",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6K5N36h2clz_dBugL37N3qut7H-5wYuU_kg&s",
+        description: "The Taj Mahal, a UNESCO World Heritage Site, stands as an enduring symbol of love and architectural brilliance in Agra, India. Commissioned by the Mughal Emperor Shah Jahan in 1632, it was constructed in memory of his beloved wife, Mumtaz Mahal, who passed away during childbirth. This stunning white marble mausoleum, completed around 1648, exemplifies Mughal architecture, blending Islamic, Persian, and Indian influences. Surrounding the Taj Mahal are immaculate gardens, reflecting pools, and an intricate mosque, all of which enhance its grandeur. Over the centuries, the Taj Mahal has become an icon of India’s cultural heritage and a testament to the timeless beauty of love and artistry..",
+        guide: "+91 9876543210"
+      },
+      {
+        name: "Qutub Minar",
+        location: "Delhi",
+        image: "https://s7ap1.scene7.com/is/image/incredibleindia/qutab-minar-delhi-attr-hero?qlt=82&ts=1727352071318",
+        description: "The Qutub Minar, a UNESCO World Heritage Site in Delhi, India, is a magnificent example of Indo-Islamic architecture. It was commissioned by Qutb al-Din Aibak, the first ruler of the Delhi Sultanate, in 1192, and later completed by his successors. Standing at an impressive height of 73 meters, it is the tallest brick minaret in the world. Made of red sandstone and marble, the tower is adorned with intricate carvings and inscriptions from the Quran. The Qutub Minar is surrounded by historical structures, including the Quwwat-ul-Islam Mosque, which is one of the oldest mosques in India. This monument not only reflects the architectural brilliance of the era but also serves as a significant symbol of India's rich historical heritage..",
+        guide: "+91 9876543211"
+      },
+      {
+        name: "Hawa Mahal",
+        location: "Jaipur, Rajasthan",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAKy-9Us7APjgYCIC9Q9ndHr4d0Wc5IFrACw&s",
+        description: "The Hawa Mahal, or Palace of Winds is an iconic landmark in Jaipur, Rajasthan, India. Built in 1799 by Maharaja Sawai Pratap Singh, it was designed by architect Lal Chand Ustad in a unique blend of Rajput and Mughal architectural styles. Constructed from red and pink sandstone, the five-story palace features 953 intricately carved windows, or jharokhas, resembling a honeycomb. These windows allowed royal women to observe street life and festivals while maintaining their privacy, as per the purdah system. The lattice design also facilitated natural ventilation, keeping the palace cool during Rajasthan's scorching summers. Today, the Hawa Mahal stands as a testament to the architectural ingenuity and cultural heritage of its time..",
+        guide: "+91 9876543212"
+      },
+      {
+        name: "Charminar",
+        location: "Hyderabad, Telangana",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTeGDNc0ZmOw4rkU-YgmaizRa3yhqJfY8iuw&s.",
+        description: "The Charminar, an iconic monument in Hyderabad, Telangana, was built in 1591 by Muhammad Quli Qutb Shah, the fifth ruler of the Qutb Shahi dynasty. This stunning structure, made of granite and limestone, was constructed to commemorate the founding of Hyderabad and is believed to mark the eradication of a deadly plague that had afflicted the region. The name Charminar translates to Four Minarets reflecting its design of four grand arches supporting minarets at each corner. The monument, blending Indo-Islamic architectural styles, also houses a mosque on its top floor. Surrounded by bustling markets and cultural landmarks, the Charminar remains a symbol of Hyderabad's rich history and vibrant heritage..",
+        guide: "+91 9876543213"
+      },
+      {
+        name: "Gateway of India",
+        location: "Mumbai, Maharashtra",
+        image: "https://d3w13n53foase7.cloudfront.net/medium_c1dad77e_4a37_4f4d_b183_5f4820e74a83_istock_502192962_8ba6075067.jpg",
+        description: "The Gateway of India, located in Mumbai, Maharashtra, is a historic arch-monument built to commemorate the visit of King George V and Queen Mary to India in 1911. Designed by Scottish architect George Wittet, its construction began in 1913 and was completed in 1924. The monument, made of yellow basalt and reinforced concrete, stands 26 meters tall and showcases the Indo-Saracenic architectural style, blending Indian, Islamic, and European elements. Initially serving as a ceremonial entrance to India, it later became symbolic as the departure point for British troops in 1948 after India's independence. Today, the Gateway of India is a prominent tourist attraction and a cultural icon of Mumbai..",
+        guide: "+91 9876543214"
+      },
+      {
+        name: "India Gate",
+        location: "New Delhi",
+        image: "https://imgcld.yatra.com/ytimages/image/upload/t_yt_blog_w_800_c_fill_g_auto_q_auto:good_f_jpg/v1456139572/Delhi091.jpg",
+        description: "India Gate, located in New Delhi, is a monumental war memorial built to honor the soldiers of the British Indian Army who lost their lives during World War I and the Third Anglo-Afghan War. Designed by Sir Edwin Lutyens, its construction began in 1921 and was completed in 1931. Standing 42 meters tall, the structure is made of sandstone and resembles the triumphal arches of ancient Rome. Inscribed on the gate are the names of over 13,000 soldiers who made the ultimate sacrifice. Beneath the arch lies the Amar Jawan Jyoti, an eternal flame added in 1971 to commemorate India's unknown soldiers. Today, India Gate serves as a symbol of national pride and remembrance..",
+        guide: "+91 9876543215"
+      },
+      {
+        name: "Ajanta Caves",
+        location: "Maharashtra",
+        image: "https://s7ap1.scene7.com/is/image/incredibleindia/ajanta-caves-chhatrapati-sambhaji-nagar-maharashtra-attr-hero-1?qlt=82&ts=1727010611256",
+        description: "The Ajanta Caves, located in Maharashtra, India, are a UNESCO World Heritage Site celebrated for their exquisite Buddhist art and architecture. These 30 rock-cut caves date back to the 2nd century BCE and were developed in two phases, with the second phase occurring between the 5th and 6th centuries CE. Carved into a horseshoe-shaped cliff overlooking the Waghur River, the caves served as monasteries and worship halls for Buddhist monks. They feature stunning fresco-style paintings and intricate sculptures depicting the life and teachings of Buddha, as well as tales from the Jataka stories. Rediscovered in 1819 by a British officer, the Ajanta Caves remain a testament to India's rich cultural and artistic heritage..",
+        guide: "+91 9876543216"
+      },
+      {
+        name: "Meenakshi Temple",
+        location: "Madurai, Tamil Nadu",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHsq7j5iQ_f8HcrWhRkLCSEHMXqwfKKcc9tg&s",
+        description: "The Meenakshi Temple, located in Madurai, Tamil Nadu, is a historic and architecturally stunning Hindu temple dedicated to Goddess Meenakshi (a form of Parvati) and her consort Lord Sundareswarar (a form of Shiva). The temple's origins date back to the Pandyan era, with significant contributions made during the 16th and 17th centuries by the Nayak rulers. Known for its towering gopurams (gateway towers) adorned with vibrant sculptures, the temple is a masterpiece of Dravidian architecture. It also features the Thousand-Pillar Hall and the sacred Golden Lotus Pond. The Meenakshi Temple is not only a spiritual center but also a cultural icon, attracting millions of devotees and tourists annually..",
+        guide: "+91 9876543217"
+      },
+      {
+        name: "Sun Temple",
+        location: "Konark, Odisha",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTReSfEdVP9tMp3ZabUv3-CEn47I6p2lHW6KA&s",
+        description: "The Sun Temple, located in Konark, Odisha, India, is a UNESCO World Heritage Site and a masterpiece of ancient Indian architecture. Built in the 13th century CE by King Narasimhadeva I of the Eastern Ganga dynasty, the temple is dedicated to the Hindu Sun God, Surya. Designed as a colossal chariot with 12 intricately carved wheels and seven galloping horses, the temple symbolizes the Sun God's journey across the heavens. Constructed using stone, it showcases the Kalinga style of architecture, renowned for its detailed sculptures and artwork. Although parts of the temple are now in ruins, it remains a significant cultural and historical landmark, attracting pilgrims and tourists from around the world.",
+        guide: "+91 9876543218"
+      },
+      {
+        name: "Hampi",
+        location: "Karnataka",
+        image: "https://s7ap1.scene7.com/is/image/incredibleindia/lotus-mahal-hampi-karnataka-2-city-hero?qlt=82&ts=1726720891065",
+        description: "Hampi, located in Karnataka, India, is a UNESCO World Heritage Site renowned for its historical and architectural significance. Once the capital of the Vijayanagara Empire, it flourished between the 14th and 16th centuries, becoming one of the world's largest and wealthiest cities of its time. The ruins of Hampi, spread across 4,100 hectares, include temples, forts, markets, and royal complexes, showcasing the grandeur of Dravidian architecture. The site is also linked to Hindu mythology, particularly the Ramayana, as it is believed to be part of the Kishkindha region. Despite its destruction in 1565 by invading forces, Hampi remains a testament to India's rich cultural heritage and attracts visitors from around the globe.",
+        guide: "+91 9876543219"
+      },
+      {
+        name: "Red fort",
+        location: "Agra",
+        image: "https://images.cnbctv18.com/wp-content/uploads/2022/08/Agra-Fort.jpg",
+        description: "Agra Fort, located in Agra, Uttar Pradesh, is a UNESCO World Heritage Site and a remarkable example of Mughal architecture. Originally built as a brick fort by the Chauhan Rajputs, it was later captured by the Mughals after the First Battle of Panipat in 1526. Emperor Akbar reconstructed the fort using red sandstone between 1565 and 1573, transforming it into a grand walled city. The fort served as the main residence of Mughal emperors until 1638, when the capital was shifted to Delhi. Within its walls lie stunning structures like the Jahangir Mahal, Diwan-i-Aam, and Musamman Burj, where Shah Jahan was imprisoned by his son Aurangzeb. Today, Agra Fort stands as a testament to India's rich history and architectural brilliance.",
+        guide: "+91 9876543589"
+      },
+      {
+        name: "Fatehpur sikri",
+        location: "Uttar Pradesh",
+        image: "https://media.istockphoto.com/id/1160438275/photo/buland-darwaza-medieval-architecture-gateway-at-fatehpur-sikri-agra-with-view-of-decorated.jpg?s=612x612&w=0&k=20&c=x1lkYKlm5xA2wALPx60WfJO45hUxu5E4fUy24in6FZo=",
+        description: "Fatehpur Sikri, located near Agra in Uttar Pradesh, India, is a UNESCO World Heritage Site and a remarkable example of Mughal architecture. Founded in 1571 by Emperor Akbar, it served as the capital of the Mughal Empire for 14 years. The city was built to honor the Sufi saint Sheikh Salim Chishti, who had predicted the birth of Akbar's son, Jahangir. Fatehpur Sikri is renowned for its stunning red sandstone structures, including the Buland Darwaza (Victory Gate), Jama Masjid, and the tomb of Sheikh Salim Chishti. Despite its grandeur, the city was abandoned in 1585 due to water scarcity. Today, it stands as a testament to Akbar's vision and the architectural brilliance of the Mughal era.",
+        guide: "+91 9876565489"
+      }
+    ];
+
+    const cardsContainer = document.getElementById('destination-cards');
+
+    destinations.forEach(place => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${place.image}" alt="${place.name}">
+        <div class="info">
+          <h3>${place.name}</h3>
+          <p><strong>Location:</strong> ${place.location}</p>
+          <p>${place.description}</p>
+          <p><strong>Guide:</strong> ${place.guide}</p>
+        </div>
+      `;
+      cardsContainer.appendChild(card);
+    });
+  </script></body>
+</html>
